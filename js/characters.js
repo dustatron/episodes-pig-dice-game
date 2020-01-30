@@ -1,6 +1,6 @@
 var characters = [
   {
-    name: 'Scrooge Mcduck',
+    name: 'Scrooge McDuck',
     img: 'img/Scrooge_McDuck.png'
   },
   {

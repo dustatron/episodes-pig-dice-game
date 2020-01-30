@@ -6,14 +6,17 @@ function Player() {
   this.tempScore = 0;
   this.totalScore = 0;
   this.wins = 0;
-  this.character = this.pickChar();
+  this.character = {};
 
   return 'player created';
 }
 
-Player.prototype.pickChar = function () {
-  //take the character and push it to the player object
-  return 'character coming soon';
+Player.prototype.pickChar = function (name, img) {
+  var charObj = {
+    name: name,
+    img: img
+  }
+  this.character = charObj;
 }
 
 Player.prototype.updateTempScore = function (score) {
@@ -23,4 +26,4 @@ Player.prototype.updateTempScore = function (score) {
   } else {
     this.tempScore += score;
   }
-}
+} 

@@ -2,8 +2,20 @@
   display: none;
 }
 
+.hideMe{
+  display: none;
+}
+
 #reset {
   display: none;
+}
+
+.play-side {
+  padding: 25px;
+}
+
+.reset-row {
+  margin-top: 30px;
 }
 
 #dice-face {
@@ -57,5 +69,11 @@
 
 .char-square img {
   max-height: 100px;
+  border-radius: 50%;
+}
+
+.player-select img {
+  max-height: 50px;
+  width: auto;
   border-radius: 50%;
 }

@@ -26,7 +26,7 @@ Game.prototype.rollDice = function () {
 
 Game.prototype.checkForWin = function () {
   for (let i = 0; i < this.players.length; i++) {
-    if(this.players[i].totalScore >= 100 ){
+    if(this.players[i].totalScore >= 10 ){
       return i;
     }
   }
@@ -52,12 +52,13 @@ Game.prototype.endTurn = function () {
   } else {
     console.log('ERROR: current Player out of range');
   }
-  
+  document.highlightCurrentPlayer(this.currentPlayer);
   document.writeScoreTotal(player, total);
   document.writeScoreTemp(player, temp);
   var winner = this.checkForWin();
   
   if(winner){
+    alert("Player "+ (winner+1)+ " wins!")
     return winner;
   }
 }
@@ -114,6 +115,13 @@ $(document).ready(function () {
     $('#dice-face').attr('src', diceSides[dice -1]);
   }
 
+  this.highlightCurrentPlayer = function() {
+    var player = game.currentPlayer;
+    $("#p0").removeClass("currentPlayer");
+    $("#p1").removeClass("currentPlayer");
+    $("#p" + player).addClass("currentPlayer");
+  }
+
   //Interface selectors
   var startBtn = $('#startBtn');
   var resetBtn = $('#reset');
@@ -132,7 +140,7 @@ $(document).ready(function () {
   
   // START BUTTON LISTENER
   startBtn.click(function(){
-    console.log('start click');
+    document.highlightCurrentPlayer(game.currentPlayer);
     var p1 = new Player();
     var p2 = new Player();
   

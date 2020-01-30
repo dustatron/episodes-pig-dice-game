@@ -7,3 +7,7 @@
   height: 150px;
   margin: 25px;
 }
+
+.currentPlayer {
+  background-color: #9fd3f575;
+}

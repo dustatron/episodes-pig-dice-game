@@ -12,6 +12,13 @@
 
 .play-side {
   padding: 25px;
+  height: 300px;
+}
+.play-side img {
+  max-height: 200px;
+  max-width: 100px;
+  overflow: hidden;
+  margin-left: 10px;
 }
 
 .reset-row {

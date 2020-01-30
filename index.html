@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +19,7 @@
 
   <title>Pig Dice Now!</title>
 </head>
+
 <body>
   <div class="container">
     <div id="header">
@@ -27,10 +29,16 @@
       <!-- Player 1 -->
       <div class="col-md-4">
         <div id="p0" class="panel play-side panel-primary">
-          <h2 id="p0-name">Player 1</h2>
-          <p>Turn Score: <span id="p0Turn">0</span></p>
-          <hr>
-          <p>Total Score: <span id="p0Total">0</span></p>
+          <div class="col-xs-6">
+            <h2 id="p0-name">Player 1</h2>
+            <p>Turn Score: <span id="p0Turn">0</span></p>
+            <hr>
+            <p>Total Score: <span id="p0Total">0</span></p>
+          </div>
+          <div class="col-xs-6">
+            <img id="p0-profile-image" src="http://unsplash.it/100/200">
+          </div>
+
         </div>
       </div>
       <!-- Dice Section -->
@@ -44,51 +52,58 @@
       <!-- Player 2 -->
       <div class="col-md-4">
         <div id="p1" class="panel play-side panel-primary">
-          <h2 id="p1-name">Player 2</h2>
-          <p>Turn Score: <span id="p1Turn">0</span></p>
-          <hr>
-          <p>Total Score: <span id="p1Total">0</span></p>
+          <div class="col-xs-6">
+            <h2 id="p1-name">Player 1</h2>
+            <p>Turn Score: <span id="p1Turn">0</span></p>
+            <hr>
+            <p>Total Score: <span id="p1Total">0</span></p>
+          </div>
+          <div class="col-xs-6">
+            <img id="p1-profile-image" src="http://unsplash.it/100/200">
+          </div>
         </div>
       </div>
     </div> <!-- End Player Board Row-->
     <div class="row char-area">
-        <div class="row player-select">
-          <div class="col-sm-6">
-            <div class="player0-pick-char picker">
-              <img src="http://unsplash.it/40/40" id="p1Pic">
-              <span id="p0-turn-to-pic">Pick Your Character.</span> 
-            </div>
-          </div>
-          <div class="col-sm-6 ">
-              <div class="player1-pick-char picker">
-                  <img src="http://unsplash.it/40/40" id="p2Pic">
-                  <span id="p1-turn-to-pic">Pick Your Character.</span> 
-                </div>
+      <div class="row player-select">
+        <div class="col-sm-6">
+          <div class="player0-pick-char picker">
+            <img src="http://unsplash.it/40/40" id="p1Pic">
+            <span id="p0-turn-to-pic">Pick Your Character.</span>
           </div>
         </div>
-          <div class="character-board">
-            <div class="row">
-    
-            </div>
+        <div class="col-sm-6 ">
+          <div class="player1-pick-char picker">
+            <img src="http://unsplash.it/40/40" id="p2Pic">
+            <span id="p1-turn-to-pic">Pick Your Character.</span>
           </div>
+        </div>
       </div>
+      <div class="character-board">
+        <div class="row">
+
+        </div>
+      </div>
+    </div>
     <div class="row reset-row">
       <div class="col-md-4 text-center">
         Player 1 Wins: <span id="p0Wins">0</span>
       </div>
       <div class="col-md-4 text-center">
         <button id="reset" class="btn btn-lg btn-block btn-danger">Reset</button>
-        
+
         <button id="pick-for-1" class="btn btn-lg btn-success large btn-block ">Pick Character for Player 1</button>
 
-        <button id="pick-for-2" class="hideMe btn btn-lg btn-success large btn-block ">Pick Character for Player 2</button>
+        <button id="pick-for-2" class="hideMe btn btn-lg btn-success large btn-block ">Pick Character for Player
+          2</button>
         <button id="startBtn" class="hideMe btn btn-lg btn-success large btn-block ">Start Game</button>
       </div>
       <div class="col-md-4 text-center">
-          Player 2 Wins: <span id="p1Wins">0</span>
+        Player 2 Wins: <span id="p1Wins">0</span>
       </div>
     </div>
   </div>
 
 </body>
+
 </html>

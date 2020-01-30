@@ -101,25 +101,38 @@ $(document).ready(function () {
 
   //Character btns
   $('#pick-for-1').click(function () {
-    var p1 = new Player();
-    game.addPlayer(p1);
-    game.players[0].pickChar(characters[charId].name, characters[charId].img);
-    game.currentPlayer = 1;
-    $('#p0-name').html(characters[charId].name);
-    $('#pick-for-1').hide();
-    $('#pick-for-2').show();
+    if(!characters[charId]){
+      alert('choose a character')
+    } else {
+      var p1 = new Player();
+      game.addPlayer(p1);
+      game.players[0].pickChar(characters[charId].name, characters[charId].img);
+      game.currentPlayer = 1;
+      $('#p0-name').html(characters[charId].name);
+      $('#pick-for-1').hide();
+      $('#pick-for-2').show();
+      $('#p0-profile-image').attr('src', characters[charId].img)
+      charId = false;
+    }
   });
 
   $('#pick-for-2').click(function () {
+    if(!characters[charId]){
+      alert('choose a character')
+    } else {
+      var p2 = new Player();
+      game.addPlayer(p2);
+      game.players[1].pickChar(characters[charId].name, characters[charId].img);
+  
+      game.currentPlayer = 0;
+      $('#pick-for-2').hide();
+      $('#startBtn').show();
+      $('#p1-name').html(characters[charId].name);
+      $('#p1-profile-image').attr('src', characters[charId].img)
 
-    var p2 = new Player();
-    game.addPlayer(p2);
-    game.players[1].pickChar(characters[charId].name, characters[charId].img);
 
-    game.currentPlayer = 0;
-    $('#pick-for-2').hide();
-    $('#startBtn').show();
-    $('#p1-name').html(characters[charId].name);
+    }
+
 
   })
 

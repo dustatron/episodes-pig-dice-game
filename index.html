@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Scripts -->
+  <script src="js/jquery.js"></script>
+  <script src="js/scripts.js"></script>
+
+  <title>Pig Dice Now!</title>
+</head>
+<body>
+  <div class="container">
+    <div id="header">
+      Pick player div
+    </div>
+    <div id="playerBoard" class="row">
+      <!-- Player 1 -->
+      <div class="col-md-4">
+        <div class="panel panel-primary">
+          <h2>Player 1</h2>
+          <p>Turn Score: <span id="p1Turn">0</span></p>
+          <hr>
+          <p>Total Score: <span id="p1Total">0</span></p>
+        </div>
+      </div>
+      <!-- Dice Section -->
+      <div class="col-md-4">
+        <div id="dice" class="panel panel-default text-center">
+          <img src="http://unsplash.it/150/150">
+          <button id="roll" class="btn btn-lg btn-block btn-warning">Roll</button>
+        </div>
+        <button id="hold" class="btn btn-lg btn-block btn-primary">Hold</button>
+      </div>
+      <!-- Player 2 -->
+      <div class="col-md-4">
+        <div class="panel panel-primary">
+          <h2>Player 2</h2>
+          <p>Turn Score: <span id="p2Turn">0</span></p>
+          <hr>
+          <p>Total Score: <span id="p2Total">0</span></p>
+        </div>
+      </div>
+    </div> <!-- End Player Board Row-->
+    <div class="row">
+      <div class="col-md-4 text-center">
+        Game Wins: <span id="p1Wins">0</span>
+      </div>
+      <div class="col-md-4 text-center">
+        <button id="reset" class="btn btn-large btn-block btn-danger">Reset</button>
+      </div>
+      <div class="col-md-4 text-center">
+          Game Wins: <span id="p2Wins">0</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,3 +1,6 @@
+/////////////////////////////////////////
+/////////   GAME OBJECT   //////////////
+
 function Game() {
   this.players = [];
   this.currentPlayer = 0;
@@ -13,16 +16,12 @@ Game.prototype.addPlayer = function (player) {
 
 Game.prototype.rollDice = function () {
   this.diceState = Math.floor(Math.random() * 6 + 1);
-  this.showDice();
   this.players[this.currentPlayer].updateTempScore(this.diceState);
-}
+  var temp = this.players[this.currentPlayer].tempScore.toString();
 
-Game.prototype.showDice = function () {
-  //write diceState to DOM
-  console.log("diceState: " + this.diceState);
-  console.log("currentPlayer: " + this.currentPlayer);
-  console.log("tempScore " + this.players[this.currentPlayer].tempScore);
-  console.log("totalScore: " + this.players[this.currentPlayer].totalScore);
+  document.writeScoreTemp(this.currentPlayer, temp);
+  document.writeDiceRoll(this.diceState);
+
 }
 
 Game.prototype.checkForWin = function () {
@@ -34,6 +33,16 @@ Game.prototype.checkForWin = function () {
 }
 
 Game.prototype.endTurn = function () {
+  //adds tempScore to totalScore
+  this.players[this.currentPlayer].totalScore += this.players[this.currentPlayer].tempScore;
+  this.players[this.currentPlayer].tempScore = 0;
+
+  var total = this.players[this.currentPlayer].totalScore.toString();
+  var temp = this.players[this.currentPlayer].tempScore;
+  var player = this.currentPlayer;
+  
+  
+  //Toggle Player State
   if(this.currentPlayer === 0) {
     console.log("cp = 0");
     this.currentPlayer = 1;
@@ -43,18 +52,18 @@ Game.prototype.endTurn = function () {
   } else {
     console.log('ERROR: current Player out of range');
   }
-  //adds tempScore to totalScore
-  this.players[this.currentPlayer].totalScore += this.players[this.currentPlayer].tempScore;
-  this.players[this.currentPlayer].tempScore = 0;
-
+  
+  document.writeScoreTotal(player, total);
+  document.writeScoreTemp(player, temp);
   var winner = this.checkForWin();
-
+  
   if(winner){
     return winner;
   }
-
-  //toggle player state
 }
+
+///////////////////////////////////////////
+/////////   player OBJECT   //////////////
 
 function Player() {
   this.tempScore = 0;
@@ -79,10 +88,31 @@ Player.prototype.updateTempScore = function (score) {
   }
 }
 
+///////////////////////////////////////////////
+/////////   START GAME OBJECT   //////////////
 var game = new Game();
 
+
 $(document).ready(function () {
-  console.log('ready')
+
+  ////////////////////////////////////////////
+  ////////    DOM FUNCTION     ////////////// 
+  this.writeScoreTemp = function (player, turnScore) {
+    console.log(player, turnScore);
+    var temp = $('#p'+player+'Turn');
+  
+    temp.text(turnScore);
+  
+  }
+  this.writeScoreTotal = function (player, totalScore) {
+    var total = $('#p'+player+'Total');
+    total.text(totalScore);
+  }
+
+  this.writeDiceRoll = function (dice) {
+    var diceSides = ['img/Dice-1.png', 'img/Dice-2.png', 'img/Dice-3.png', 'img/Dice-4.png', 'img/Dice-5.png', 'img/Dice-6.png']
+    $('#dice-face').attr('src', diceSides[dice -1]);
+  }
 
   //Interface selectors
   var startBtn = $('#startBtn');

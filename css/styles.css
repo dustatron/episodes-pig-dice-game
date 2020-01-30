@@ -1,3 +1,9 @@
 #reset {
   display: none;
 }
+
+#dice-face {
+  width: auto;
+  height: 150px;
+  margin: 25px;
+}

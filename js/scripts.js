@@ -101,6 +101,7 @@ $(document).ready(function () {
 
   //Character btns
   $('#pick-for-1').click(function () {
+
     if(!characters[charId]){
       alert('choose a character')
     } else {

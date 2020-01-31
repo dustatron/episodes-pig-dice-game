@@ -27,7 +27,7 @@ Game.prototype.rollDice = function () {
 
 Game.prototype.checkForWin = function () {
   for (let i = 0; i < this.players.length; i++) {
-    if (this.players[i].totalScore >= 10) {
+    if (this.players[i].totalScore >= 2) {
       return this.winner = i.toString();
     }
   }
@@ -41,8 +41,8 @@ Game.prototype.resetGame = function () {
     player.totalScore = 0;
     document.writeScoreTemp(index, 0);
     document.writeScoreTotal(index, 0);
-    if(index === this.winner) {
-      player.wins ++;
+    if (index === this.winner) { 
+      player.wins++;
     }
     document.highlightCurrentPlayer();
     this.winner = '';
@@ -67,16 +67,21 @@ Game.prototype.endTurn = function () {
   } else {
     console.log('ERROR: current Player out of range');
   }
+
   document.highlightCurrentPlayer(this.currentPlayer);
   document.writeScoreTotal(player, total);
   document.writeScoreTemp(player, temp);
+  
   var winner = this.checkForWin();
   console.log('winner is = ' + winner);
 
   if (this.checkForWin()) {
     console.log('this is a win');
-    $('#p'+winner+'Wins').html(this.players[winner].wins);
-    alert("Player " + (winner + 1) + " wins!")
+    $('#p' + winner + 'Wins').html(this.players[winner].wins);
+    alert("Player " + (this.players[winner].character.name) + " wins!")
+    this.resetGame();
+    $('#p1Wins').html(game.players[1].wins);
+    $('#p0Wins').html(game.players[0].wins);
     return winner;
   }
 }

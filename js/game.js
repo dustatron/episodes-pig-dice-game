@@ -27,7 +27,7 @@ Game.prototype.rollDice = function () {
 
 Game.prototype.checkForWin = function () {
   for (let i = 0; i < this.players.length; i++) {
-    if (this.players[i].totalScore >= 2) {
+    if (this.players[i].totalScore >= 100) {
       return this.winner = i.toString();
     }
   }
